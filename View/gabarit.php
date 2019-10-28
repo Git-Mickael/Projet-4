@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="Contents/style.css" />
         <title>Mon Blog</title>
     </head>
     <body>

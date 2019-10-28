@@ -15,4 +15,4 @@
     <p><?= $comment['text'] ?></p>
 <?php endforeach; ?>
 <?php $content = ob_get_clean(); ?>
-<?php require 'gabarit.php';?>
+<?php require 'View/gabarit.php';?>

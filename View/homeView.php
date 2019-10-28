@@ -2,7 +2,7 @@
 <?php foreach ($tickets as $ticket): ?>
 <article>
     <header>
-        <a href="<?= "ticket.php?id=" . $ticket['id'] ?>">
+        <a href="<?= "index.php?action=ticket&id=" . $ticket['id'] ?>">
         <h1 class="ticketTitle"><?= $ticket['title'] ?></h1>
         <time><?= $ticket['date'] ?></time>
     </header>
@@ -11,4 +11,4 @@
 <hr />
 <?php endforeach; ?>
 <?php $content = ob_get_clean(); ?>
-<?php require 'gabarit.php';?>
+<?php require 'View/gabarit.php';?>
