@@ -34,7 +34,11 @@ class Routeur{
 			}
 		}
 		catch (Exception $e) {
-		    $this->erreur($e->getMessage());
+		    $this->error($e->getMessage());
 		}
 	}
+        private function error($msgError){
+            $view = new AllView("Error");
+            $view->generate(array('msgError' => $msgError));
+        }
 }
