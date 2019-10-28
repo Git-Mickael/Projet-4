@@ -17,7 +17,7 @@ function getTicket($idTicket){
 
 function getComments($idTicket){
     $bdd = getBdd();
-    $comments = $Bdd->prepare('SELECT COM_ID as id, COM_DATE as date, COM_AUTHOR as author, COM_TEXT as text from commentary where ID_TICKET=?') ;
+    $comments = $bdd->prepare('SELECT COM_ID as id, COM_DATE as date, COM_AUTHOR as author, COM_TEXT as text from commentary where ID_TICKET=?') ;
     $comments->execute(array($idTicket));
     return $comments;
 }
