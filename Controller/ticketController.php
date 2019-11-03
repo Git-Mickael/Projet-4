@@ -16,7 +16,7 @@ class TicketController{
     public function ticket($idTicket){
         $ticket = $this->ticket->getTicket($idTicket);
         $comments = $this->comments->getComments($idTicket);
-        $view = new AllView("Ticket");
+        $view = new AllView("ticket");
         $view->generate(array('ticket' => $ticket, 'comments' => $comments));
     }
     

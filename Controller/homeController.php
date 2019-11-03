@@ -12,7 +12,7 @@ class HomeController{
 
 	public function home(){
 		$tickets = $this->ticket->getTickets();
-		$view = new AllView("Home");
+		$view = new AllView("home");
 		$view->generate(array('tickets' => $tickets));
 	}
 }
