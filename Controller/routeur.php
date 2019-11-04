@@ -32,13 +32,18 @@ class Routeur{
                     $this->ctrlTicket->commentary($author, $contents, $idTicket);
                 }
                 else if ($_GET['action'] == 'admin'){
-                    $n = $this->getParameter($_POST, 'name');
-                    $p = $this->getParameter($_POST, 'password');
-                    if(isset($n) and isset($p)){
-                       $this->ctrlAdmin->admin($n, $p);
+                    $admin = $this->getParameter($_POST, 'name');
+                    $pass = $this->getParameter($_POST, 'password');
+                    if(isset($admin) and isset($pass)){
+                       $this->ctrlAdmin->admin($admin, $pass);
                     }
                     else
-                        throw new Exception("Identifiant de billet non valide");                    
+                        throw new Exception("Erreur de login");                    
+                }
+                 else if ($_GET['action'] == 'createTicket') {
+                    $title = $this->getParameter($_POST, 'title');
+                    $description = $this->getParameter($_POST, 'description');
+                    $this->ctrlAdmin->createTickets($title, $description);
                 }
                 else
                     throw new Exception("Action non valide");

@@ -14,5 +14,9 @@ class AdminController{
         $view = new AllView("admin");
         $view->generate(array('admin' => $admin));
     }
+    public function createTickets($title, $description){
+        $this->connect->addTickets($title, $description);
+        
+    }
     
 }

@@ -12,4 +12,9 @@ class Admin extends Model{
             throw new Exception("Mauvais identifiant ou mot de passe");
         
     }
+    
+    public function addTickets($title, $description){
+        $sql = 'INSERT into tickets(TICKETS_DATE, TICKETS_TITLE, TICKETS_DESCRIPTION) values(NOW(), ?, ?)';
+        $this->executerRequete($sql, array($title, $description));                 
+    }
 }
