@@ -40,10 +40,14 @@ class Routeur{
                     else
                         throw new Exception("Erreur de login");                    
                 }
-                 else if ($_GET['action'] == 'createTicket') {
+                else if ($_GET['action'] == 'createTicket') {
                     $title = $this->getParameter($_POST, 'title');
                     $description = $this->getParameter($_POST, 'description');
                     $this->ctrlAdmin->createTickets($title, $description);
+                }
+                else if ($_GET['action'] == 'deleteTicket') {
+                    $idTicket = intval($this->getParameter($_GET, 'id'));
+                    $this->ctrlAdmin->deleteTickets($idTicket);
                 }
                 else
                     throw new Exception("Action non valide");

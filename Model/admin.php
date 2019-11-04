@@ -16,4 +16,8 @@ class Admin extends Model{
         $sql = 'INSERT into tickets(TICKETS_DATE, TICKETS_TITLE, TICKETS_DESCRIPTION) values(NOW(), ?, ?)';
         $this->executerRequete($sql, array($title, $description));                
     }
+    public function removeTickets($id){
+        $sql = 'DELETE FROM tickets WHERE TICKETS_ID=?';
+        $this->executerRequete($sql, array($id));
+    }
 }

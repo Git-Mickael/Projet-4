@@ -13,10 +13,11 @@
 </body>
 <?php foreach ($tickets as $ticket) :?>
     <article class="tickets">
+        <form method="post" action="<?='index.php?action=deleteTicket&id=' . $ticket['id']  ?>">
 	    <h1 class ="ticketsTitle"> <?= $ticket['title'] ?> </h1>
-	</a>
-	<time> <?= $ticket['date'] ?> </time>
-	<p> <?= $ticket['description'] ?> </p>
-        <input type="submit" value="Supprimer" />
+            <time> <?= $ticket['date'] ?> </time>
+            <p> <?= $ticket['description'] ?> </p>
+            <input type="submit" value="Supprimer" />
+        </form>
     </article>
 <?php endforeach; ?>

@@ -20,4 +20,7 @@ class AdminController{
     public function createTickets($title, $description){
         $this->connect->addTickets($title, $description);     
     }
+    public function deleteTickets($id){
+        $this->connect->removeTickets($id);
+    }
 }
