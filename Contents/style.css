@@ -1,22 +1,22 @@
-#tickets
+.tickets
 {
-	background: rgb(239, 189, 152);
-	margin: auto;
-	margin-left: 30px;
-	margin-right: 30px; 
+    background: rgb(239, 189, 152);
+    margin: auto;
+    margin-left: 30px;
+    margin-right: 30px; 
 }
 .ticketsTitle
 {
-	text-align: center;
+    text-align: center;
 }
 #title
 {
-	text-align: center;
-	display: flex;
-	flex-direction: row;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
 }
 #author
 {
-	display: flex;
-	flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }

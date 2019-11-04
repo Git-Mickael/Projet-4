@@ -9,12 +9,11 @@ class Admin extends Model{
         if ($login->rowCount() == 1)
             return $login->fetch();
         else 
-            throw new Exception("Mauvais identifiant ou mot de passe");
-        
+            throw new Exception("Mauvais identifiant ou mot de passe");       
     }
     
     public function addTickets($title, $description){
         $sql = 'INSERT into tickets(TICKETS_DATE, TICKETS_TITLE, TICKETS_DESCRIPTION) values(NOW(), ?, ?)';
-        $this->executerRequete($sql, array($title, $description));                 
+        $this->executerRequete($sql, array($title, $description));                
     }
 }

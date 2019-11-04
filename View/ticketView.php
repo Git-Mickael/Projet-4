@@ -14,7 +14,7 @@
     <p><?= $comment['text'] ?></p>
 <?php endforeach; ?>
 <form method="post" action="index.php?action=comment">
-    <input id="authorComment" name="author" type="text" placeholder="Votre pseudo" 
+    <input id="authorComment" name="author" type="text" placeholder="Votre pseudo"
         required /><br />
     <textarea id="txtComment" name="contents" rows="4" 
         placeholder="Votre commentaire" required></textarea><br />
