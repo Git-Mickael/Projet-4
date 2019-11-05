@@ -21,3 +21,9 @@
         </form>
     </article>
 <?php endforeach; ?>
+<?php foreach ($reports as $report) :?>
+    <article >
+	    <p><?= $report['author'] ?> a dit le <?=$report['date'] ?>:</p>
+            <p><?= $report['text'] ?></p>
+    </article>
+<?php endforeach; ?>

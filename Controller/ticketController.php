@@ -24,4 +24,7 @@ class TicketController{
         $this->comments->addComments($author, $contents, $idTicket);
         $this->ticket($idTicket);
     }
+    public function report($report){
+        $this->comments->reportComments($report);
+    }
 }

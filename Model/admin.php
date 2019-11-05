@@ -20,4 +20,9 @@ class Admin extends Model{
         $sql = 'DELETE FROM tickets WHERE TICKETS_ID=?';
         $this->executerRequete($sql, array($id));
     }
+    public function reportCommentsList(){
+        $sql = 'SELECT COM_ID as id, COM_DATE as date, COM_AUTHOR as author, COM_TEXT as text from commentary where COM_REPORT=1';
+        $reports = $this->executerRequete($sql); 
+        return $reports;
+    }
 }

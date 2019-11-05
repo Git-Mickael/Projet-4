@@ -49,6 +49,10 @@ class Routeur{
                     $idTicket = intval($this->getParameter($_GET, 'id'));
                     $this->ctrlAdmin->deleteTickets($idTicket);
                 }
+                else if ($_GET['action'] == 'report') {
+                    $report = $this->getParameter($_POST, 'report');
+                    $this->ctrlTicket->report($report);
+                }
                 else
                     throw new Exception("Action non valide");
                 }

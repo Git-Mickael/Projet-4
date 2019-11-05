@@ -10,7 +10,18 @@ class Comments extends Model{
     }
     
     public function addComments($author, $contents, $idTicket) {
-        $sql = 'INSERT into commentary(COM_DATE, COM_AUTHOR, COM_TEXT, ID_TICKET) values(NOW(), ?, ?, ?)';
+        $sql = 'INSERT into commentary(COM_DATE, COM_AUTHOR, COM_TEXT, COM_REPORT, ID_TICKET) values(NOW(), ?, ?,0, ?)';
         $this->executerRequete($sql, array($author, $contents, $idTicket));
-    }      
+    }
+    
+    public function reportComments($report){
+        $sql =  'SELECT COM_ID as id, COM_DATE as date, COM_AUTHOR as author, COM_TEXT as text from commentary where ID_TICKET=?';
+        $this->executerRequete($sql, array($report));
+    }
+    
+    public function reportCommentsList(){
+        $sql = 'SELECT COM_ID as id, COM_DATE as date, COM_AUTHOR as author, COM_TEXT as text from commentary where COM_REPORT=1';
+        $reports = $this->executerRequete($sql);
+        return $reports;
+    }
 }
