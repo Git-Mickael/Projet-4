@@ -19,9 +19,12 @@ class AdminController{
         $view->generate(array('admin' => $admin, 'tickets' => $tickets, 'reports' => $reports));
     }
     public function createTickets($title, $description){
-        $this->connect->addTickets($title, $description);     
+        $this->connect->addTickets($title, $description);
     }
     public function deleteTickets($id){
         $this->connect->removeTickets($id);
+    }
+    public function deleteComments($id){
+        $this->connect->removeComments($id);
     }
 }

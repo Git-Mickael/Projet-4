@@ -53,6 +53,10 @@ class Routeur{
                     $report = $this->getParameter($_POST, 'report');
                     $this->ctrlTicket->report($report);
                 }
+                else if ($_GET['action'] == 'deleteComment') {
+                    $idComment = intval($this->getParameter($_GET, 'id'));
+                    $this->ctrlAdmin->deleteComments($idComment);
+                }
                 else
                     throw new Exception("Action non valide");
                 }

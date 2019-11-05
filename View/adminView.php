@@ -23,7 +23,10 @@
 <?php endforeach; ?>
 <?php foreach ($reports as $report) :?>
     <article >
+        <form method="post" action="<?='index.php?action=deleteComment&id=' . $report['id']  ?>">
 	    <p><?= $report['author'] ?> a dit le <?=$report['date'] ?>:</p>
             <p><?= $report['text'] ?></p>
+            <input type="submit" value="Retirer" />
+        </form>
     </article>
 <?php endforeach; ?>

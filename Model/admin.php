@@ -25,4 +25,8 @@ class Admin extends Model{
         $reports = $this->executerRequete($sql); 
         return $reports;
     }
+    public function removeComments($id){
+        $sql = 'DELETE FROM commentary WHERE COM_ID=?';
+        $this->executerRequete($sql, array($id));
+    }
 }
