@@ -13,12 +13,23 @@
 </body>
 <?php foreach ($tickets as $ticket) :?>
     <article class="tickets">
-        <form method="post" action="<?='index.php?action=deleteTicket&id=' . $ticket['id']  ?>">
-	    <h1 class ="ticketsTitle"> <?= $ticket['title'] ?> </h1>
-            <time> <?= $ticket['date'] ?> </time>
-            <p> <?= $ticket['description'] ?> </p>
-            <input type="submit" value="Supprimer" />
-        </form>
+        <div>
+            <form method="post" action="<?='index.php?action=deleteTicket&id=' . $ticket['id']  ?>">
+                <h1 class ="ticketsTitle"> <?= $ticket['title'] ?> </h1>
+                <time> <?= $ticket['date'] ?> </time>
+                <p> <?= $ticket['description'] ?> </p>
+                <input type="submit" value="Supprimer" />
+            </form>
+            <input type="submit" value="Modifier" />
+        </div>
+        <div>
+            <a href="<?= 'index.php?action=modify&id=' . $ticket['id'] ?>">
+            <input id="changeTitle" name="newTitle" type="text" placeholder="Titre" required /><br/>
+            <textarea id="changeDescription" name="newDescription"></textarea><br/>
+            
+                 <input type="submit" value="OK" />
+            </a>
+        </div>
     </article>
 <?php endforeach; ?>
 <?php foreach ($reports as $report) :?>
@@ -27,6 +38,7 @@
 	    <p><?= $report['author'] ?> a dit le <?=$report['date'] ?>:</p>
             <p><?= $report['text'] ?></p>
             <input type="submit" value="Retirer" />
+            
         </form>
     </article>
 <?php endforeach; ?>

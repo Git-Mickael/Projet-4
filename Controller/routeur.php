@@ -23,7 +23,7 @@ class Routeur{
                     if ($idTicket != 0)
                         $this->ctrlTicket->ticket($idTicket);
                     else
-                        throw new Exception("Identifiant de billet non valide");                                 
+                        throw new Exception("Identifiant de billet non valide");                            
                 }
                 else if ($_GET['action'] == 'comment') {
                     $author = $this->getParameter($_POST, 'author');
@@ -34,11 +34,14 @@ class Routeur{
                 else if ($_GET['action'] == 'admin'){
                     $admin = $this->getParameter($_POST, 'name');
                     $pass = $this->getParameter($_POST, 'password');
-                    if(isset($admin) and isset($pass)){
-                       $this->ctrlAdmin->admin($admin, $pass);
+                    if(isset($admin) and isset($pass)){ 
+                       $this->ctrlAdmin->verifyPass($admin, $pass);
                     }
                     else
                         throw new Exception("Erreur de login");                    
+                }
+                else if ($_GET['action'] == 'test') {
+                    $this->ctrlAdmin->admin();
                 }
                 else if ($_GET['action'] == 'createTicket') {
                     $title = $this->getParameter($_POST, 'title');
@@ -50,12 +53,18 @@ class Routeur{
                     $this->ctrlAdmin->deleteTickets($idTicket);
                 }
                 else if ($_GET['action'] == 'report') {
-                    $report = $this->getParameter($_POST, 'report');
+                    $report = intval($this->getParameter($_GET, 'id'));
                     $this->ctrlTicket->report($report);
                 }
                 else if ($_GET['action'] == 'deleteComment') {
                     $idComment = intval($this->getParameter($_GET, 'id'));
                     $this->ctrlAdmin->deleteComments($idComment);
+                }
+                else if ($_GET['action'] == 'modify') {
+                    $idTicket = intval($this->getParameter($_GET, 'id'));
+                    $newTitle = $this->getParameter($_POST, 'newTitle');
+                    $newDescription = $this->getParameter($_POST, 'newDescription');
+                    $this->ctrlAdmin->modifyTickets($newTitle, $newDescription, $idTicket);
                 }
                 else
                     throw new Exception("Action non valide");

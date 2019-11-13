@@ -14,6 +14,9 @@
             <p><label>Mot de passe : <input type="text" name="password"/></label></p>
             <p><input type="submit" value="Se connecter" /></p>
         </form>
+        <a href="<?= 'index.php?action=disconnection'?>">
+            <p><input type="submit" value="Se déconnecter" /></p>
+        </a>
     </header>
   <body>
     <div id="global">
