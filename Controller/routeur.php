@@ -34,7 +34,7 @@ class Routeur{
                 else if ($_GET['action'] == 'admin'){
                     $admin = $this->getParameter($_POST, 'name');
                     $pass = $this->getParameter($_POST, 'password');
-                    if(isset($admin) and isset($pass)){ 
+                    if(isset($admin) and isset($pass)){
                        $this->ctrlAdmin->verifyPass($admin, $pass);
                     }
                     else

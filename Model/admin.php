@@ -7,12 +7,13 @@ class Admin extends Model{
         $sql = 'SELECT LOGIN_ID as id, LOGIN_NAME as name, LOGIN_PASSWORD as password from login where LOGIN_NAME=? and LOGIN_PASSWORD=?';
         $login = $this->executerRequete($sql, array($name, $password));
         
-        
+        $name = $_POST['name'];
+        $password = $_POST['password'];
         if ($login->rowCount() == 1){
             return $login->fetch();
-            $adminVerify = password_verify($_POST['name'], $name);
+            $adminVerify = password_verify($_POST['name'], $login['name']);
             $passwordVerify = password_verify($_POST['password'], $password);
-            if ($adminVerify and $passwordVerify) {
+            if ($adminVerify OR $passwordVerify) {
                 $_SESSION['name'] = $name;
                 $_SESSION['password'] = $password;
             }

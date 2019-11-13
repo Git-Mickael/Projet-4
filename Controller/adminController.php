@@ -14,6 +14,7 @@ class AdminController{
     public function verifyPass($name, $password){
         $this->connect->getAdmin($name, $password);
         header('Location: index.php?action=test');
+        
     }
     public function admin(){
         $tickets = $this->adminTicket->getTickets();
@@ -23,7 +24,7 @@ class AdminController{
     }
     public function createTickets($title, $description){
         $this->connect->addTickets($title, $description);
-        if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
+        if (isset($_SESSION['name']) AND isset($_SESSION['password'])){
             header('Location: index.php?action=test');
         }
         else {
@@ -32,7 +33,12 @@ class AdminController{
     }
     public function deleteTickets($id){
         $this->connect->removeTickets($id);
-        header('Location: index.php?action=test');
+        if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
+            header('Location: index.php?action=test');
+        }
+        else {
+            header('Location: index.php');
+        }
     }
     public function modifyTickets($newTitle, $newDescription, $id){
         $this->connect->changeTickets($newTitle, $newDescription, $id);
