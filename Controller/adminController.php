@@ -33,7 +33,7 @@ class AdminController{
     }
     public function deleteTickets($id){
         $this->connect->removeTickets($id);
-        if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
+        if (isset($_SESSION['name']) AND isset($_SESSION['password'])){
             header('Location: index.php?action=test');
         }
         else {

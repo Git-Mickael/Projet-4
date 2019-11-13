@@ -11,14 +11,6 @@ class Admin extends Model{
         $password = $_POST['password'];
         if ($login->rowCount() == 1){
             return $login->fetch();
-            $adminVerify = password_verify($_POST['name'], $login['name']);
-            $passwordVerify = password_verify($_POST['password'], $password);
-            if ($adminVerify OR $passwordVerify) {
-                $_SESSION['name'] = $name;
-                $_SESSION['password'] = $password;
-            }
-            else
-                throw new Exception("Mauvais identifiant ou mot de passe");
         }    
         else {
             throw new Exception("Erreur d'identifiant ou mot de passe");            

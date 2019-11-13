@@ -32,10 +32,14 @@ class Routeur{
                     $this->ctrlTicket->commentary($author, $contents, $idTicket);
                 }
                 else if ($_GET['action'] == 'admin'){
+                    $saveName = $_POST['name'];
+                    $savePassword = $_POST['password'];
                     $admin = $this->getParameter($_POST, 'name');
                     $pass = $this->getParameter($_POST, 'password');
                     if(isset($admin) and isset($pass)){
                        $this->ctrlAdmin->verifyPass($admin, $pass);
+                       $_SESSION['name'] = $saveName;
+                       $_SESSION['password'] = $savePassword;
                     }
                     else
                         throw new Exception("Erreur de login");                    
