@@ -60,6 +60,10 @@ class Routeur{
                     $report = intval($this->getParameter($_GET, 'id'));
                     $this->ctrlTicket->report($report);
                 }
+                else if ($_GET['action'] == 'cancel') {
+                    $cancel = intval($this->getParameter($_GET, 'id'));
+                    $this->ctrlAdmin->cancel($cancel);
+                }
                 else if ($_GET['action'] == 'deleteComment') {
                     $idComment = intval($this->getParameter($_GET, 'id'));
                     $this->ctrlAdmin->deleteComments($idComment);

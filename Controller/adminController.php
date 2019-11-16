@@ -6,6 +6,7 @@ require_once 'Model/ticket.php';
 
 class AdminController{
     private $connect;
+    private $adminTicket;
     
     public function __construct(){
         $this->connect = new Admin();
@@ -42,11 +43,23 @@ class AdminController{
     }
     public function modifyTickets($newTitle, $newDescription, $id){
         $this->connect->changeTickets($newTitle, $newDescription, $id);
+        if (isset($_SESSION['name']) AND isset($_SESSION['password'])){
+            header('Location: index.php?action=test');
+        }
+        else {
+            header('Location: index.php');
+        }
     }
     public function deleteComments($id){
         $this->connect->removeComments($id);
     }
     public function cancel($cancel){
-        $this->comments->reportComments($cancel);
+        $this->connect->cancelReport($cancel);
+        if (isset($_SESSION['name']) AND isset($_SESSION['password'])){
+            header('Location: index.php?action=test');
+        }
+        else {
+            header('Location: index.php');
+        }
     }
 }

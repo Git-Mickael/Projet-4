@@ -12,7 +12,7 @@
         <form id="author" action="index.php?action=admin" method="POST">
             <p><label>Nom : <input type="text" name="name"/></label></p>
             <p><label>Mot de passe : <input type="text" name="password"/></label></p>
-            <p><input type="submit" value="Se connecter" /></p>
+            <p><input id="connection" type="submit" value="Se connecter" /></p>
         </form>
         <a href="<?= 'index.php?action=disconnection'?>">
             <p><input type="submit" value="Se déconnecter" /></p>
@@ -27,6 +27,7 @@
 
         </footer>
     </div>
+    <script src="Contents/blog.js"></script>
   </body>
 </html>
 

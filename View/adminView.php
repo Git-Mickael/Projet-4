@@ -22,11 +22,10 @@
             </form>
             <input type="submit" value="Modifier" />
         </div>
-        <div>
-            <a href="<?= 'index.php?action=modify&id=' . $ticket['id'] ?>">
+        <div>      
             <input id="changeTitle" name="newTitle" type="text" placeholder="Titre" required /><br/>
             <textarea id="changeDescription" name="newDescription"></textarea><br/>
-            
+            <a href="<?= 'index.php?action=modify&id=' . $ticket['id'] ?>">
                  <input type="submit" value="OK" />
             </a>
         </div>
@@ -37,8 +36,10 @@
         <form method="post" action="<?='index.php?action=deleteComment&id=' . $report['id']  ?>">
 	    <p><?= $report['author'] ?> a dit le <?=$report['date'] ?>:</p>
             <p><?= $report['text'] ?></p>
-            <input type="submit" value="Retirer" />
-            
+            <input type="submit" value="Retirer" />   
         </form>
+        <a href="<?= 'index.php?action=cancel&id=' . $report['id'] ?>">
+                 <input type="submit" value="Annuler" />
+        </a>
     </article>
 <?php endforeach; ?>
